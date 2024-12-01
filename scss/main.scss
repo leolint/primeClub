@@ -17,6 +17,16 @@ body {
     display: flex;
     justify-content: center;
     color: whitesmoke;
+    overflow-x: hidden;
+
+    &_title {
+        font-size: 35px;
+        position: absolute;
+        left: 50%;
+        top: 1%;
+        transform: translate(-50%, 0%);
+        z-index: 1;
+    }
 }
 
 .prime_left {
@@ -24,23 +34,44 @@ body {
     height: 100vh;
     display: flex;
     border-right: 1px rgba(245, 245, 245, 0.437) solid;
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
     cursor: pointer;
+    position: relative;
+
     &:hover {
         width: 100%;
-        transition: all 0.5s ease; 
+        transition: all 0.5s ease;
     }
 }
 
 .prime_right {
     width: 50%;
-    height: 100vh;
-    display: flex;
     border-left: 1px rgba(245, 245, 245, 0.437) solid;
-    transition: all 0.3s ease; 
+    transition: width 0.3s ease;
     cursor: pointer;
-    &:hover {
+    position: relative;
+
+    &-wrapper {
+        display: flex;
         width: 100%;
-        transition: all 0.5s ease; 
+        height: 100vh;
+        background: url(../assets/img/cyberRoom.jpg);
+        background-size: cover;
+        filter: blur(3px) brightness(70%);
+        transition: filter 0.5s ease;
     }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            width: 100%;
+            transition: width 0.5s ease;
+
+            .prime_right-wrapper {
+                filter: blur(0) brightness(100%);
+                transition: filter 0.5s ease;
+            }
+        }
+    }
+
+
 }
